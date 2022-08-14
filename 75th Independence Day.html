@@ -1,0 +1,191 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #111;
+            display: flex;
+            place-content: center;
+            place-items: center;
+        }
+        .tline{
+            position: absolute;
+            bottom: 10%;
+            left:5%;
+            appearance: none;
+            background: #383a40;
+            border-radius:10px;
+            height: 30px;
+            width:90%;
+            box-shadow: -5px 5px 8px 4px rgb(0,0,0);
+            inset: 3px 0 5px 0 rgb(105, 105, 105);
+        }
+        .tline::-webkit-slider-thumb{
+            appearance: none;
+            height:0px;
+            width:0px;
+            border: 16px solid transparent;
+            border-bottom:30px solid hsl(221, 98%, 94%);
+            border-top:0;
+            background: transparent;
+            border-radius:3px;
+        }
+        .num{
+            position: absolute;
+            bottom: 10%;
+            left:40%;
+            font-size: 70px;
+            color: rgb(43, 43, 43);
+            font-weight: bold;
+            font-family: Arial,san-serif;
+            display: flex;
+            place-content: center;
+            place-items: center;
+            user-select:none;
+            z-index: -1;
+        }
+        .img{           
+            position: absolute;
+            top: 10%;
+            width:70%;
+            height:270px;
+            overflow:hidden;
+            display: grid;
+            place-content: center;
+            place-items: center;
+            user-select:none;
+        }
+        .subtit{
+            position: absolute;
+            top: 5px;
+            width: 100%;
+            font-size: 50px;
+            color: rgb(49, 49, 49);
+            font-weight: bold;
+            font-family: Arial,san-serif;
+            display: flex;
+            place-content: center;
+            place-items: center;
+            user-select:none;
+        }
+        img:hover{
+            transform: translateX(8%);
+            width:75%;
+            transition: width 0.5s;
+            display: flex;
+            place-content: center;
+            place-items: center;            
+        }
+    </style>
+    <body>
+        <div class="img" id="img4">
+            <img src=".\New\1757.jpg" style="width:70%;"/>
+        </div>
+        <div class="subtit" id="subtit"></div>
+        <input class="tline" id="tlin" value="1757" min="1757" max="2022" type="range" onmousemove="val(this)" onchange="val(this)" ondblclick="this.value='0';">
+        <div  class="num">
+            <h2 id="yr" style="transform:translateX(0px)">1700</h2>
+        </div>
+    </body>
+    <script>
+        var y=1;
+        const yrs = ["Battle of Plassey","Battle of Buxar <small>(fall of Begal, Bihar & Odisha)</small>",
+        "Anglo-Mysore Wars (1767 to 1799) <small>(fall of Mysore State)</small>","Third Anglo-Maratha War <small>(fall of Maratha terr.)</small>",
+        "Abolition of Sati (1829)","Second Anglo-Sikh War  <small>(fall of Punjab)</small>","Annexation of Jhansi through Doctrine of Lapse",
+        "Annexation of Awadh on the basis of Misrule; Widow Remarriage Act (1856)","First War of Independence","End of rule of East India Comp.; India directly ruled by the Crown",
+        "East India Association <small>founded by Dadabhai Naoroji</small>","Indian Association <small>founded by Surendranath Bannerjee</small>","Indian National Conference <small>founded by Surendranath Bannerjee</small>","Establishment of the Indian National Congress (28 Dec, 1885);<br>Start of Early Nationalist Phase (1885-1907)",
+        "Bengal Partition (1905)<small> by Lord Curzon</small>","All-India Muslim Leage <small>established on 30 Dec, 1906</small>","Assertive Nationalist Phase <small>(1907-1916) started</small>","The Gandhian Era <small>(1915-1947) started</small>","Lucknow Pact (1916) signed",
+        "Champaran Satyagrah (1917)","Ahemdabad Satyagrah (1918)<br>Kheda Satyagrah (1918)","Rowlatt Act (Feb, 1919)<br>Jallianwala Bagh Tragedy (13 Apr, 1919)<br>Khilafat Movement (1919)","Non-cooperation Movement <small>started</small>",
+        "Chauri Chaura incident (5 Feb, 1922)<br>Suspension of Non-coopeation Movement (12 Feb, 1922)","Civil Disobidience Movement (1930-1934) <small>started</small><br>Dandi March started<small> on 12 March, 1930 ,<br>from Sabarmati Ashram to Dandi, a village on gujrat sea coast</small><br>First Round Table Conference (12 Nov,1930 to 19 Jan,1931) <small>started in London</small>",
+        "Gandhi-Irwin Pact (Mar, 1931)<br>Second Round Table Conference <small>(7 Sept to 1 Dec, 1931)</small>","Third Round Table Conference <small>(17 Nov, 1932 to 24 Dec, 1932)</small>"
+        ,"Azadi ka Amrit Mohotsav (75 yrs of independence)"];
+        function val(x){
+            var z="https://raw.githubusercontent.com/rajnide44/rajnide44/main/";
+            y=x.value;
+            z=z+y+".jpg";
+            var mess=message(y);
+            if(mess=='no')mess="";  else mess=yrs[mess];
+            console.log(z);
+            document.getElementById("img4").innerHTML='<a href='+z+'><img id="img4" src="'+z+'" style="min-height:70%;max-width:530px;min-width:450px;border-radius:3px;"/></a>';
+            document.getElementById("subtit").innerHTML="<span style='background-color: #dfdfdf83;'>"+mess+"</span>";
+            document.getElementById("yr").innerHTML=y;
+        }
+        function message(yr6){
+            if(yr6==1757)
+            return 0;
+            else if(yr6==1764)
+            return 1;
+            else if(yr6==1767)
+            return 2;
+            else if(yr6==1817)
+            return 3;
+            else if(yr6==1829)
+            return 4;
+            else if(yr6==1849)
+            return 5;
+            else if(yr6==1853)
+            return 6;
+            else if(yr6==1856)
+            return 7;
+            else if(yr6==1857)
+            return 8;
+            else if(yr6==1858)
+            return 9;
+            else if(yr6==1866)
+            return 10;
+            else if(yr6==1876)
+            return 11;
+            else if(yr6==1883)
+            return 12;
+            else if(yr6==1885)
+            return 13;
+            else if(yr6==1905)
+            return 14;
+            else if(yr6==1906)
+            return 15;
+            else if(yr6==1907)
+            return 16;
+            else if(yr6==1915)
+            return 17;
+            else if(yr6==1916)
+            return 18;
+            else if(yr6==1917)
+            return 19;
+            else if(yr6==1918)
+            return 20;
+            else if(yr6==1919)
+            return 21;
+            else if(yr6==1920)
+            return 22;
+            else if(yr6==1922)
+            return 23;
+            else if(yr6==1930)
+            return 24;
+            else if(yr6==1931)
+            return 25;
+            else if(yr6==1932)
+            return 26;
+            else if(yr6==2022)
+            return 27;
+            else
+            return "no";
+        }
+        
+        var elem = document.body;
+
+/* When the openFullscreen() function is executed, open the video in fullscreen.
+Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+        setInterval(function(){
+                val(document.getElementById("tlin"));//hi
+            openFullscreen();
+        },1);
+    </script>
+</html>
