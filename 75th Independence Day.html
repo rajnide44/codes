@@ -81,7 +81,7 @@
             <img src=".\New\1757.jpg" style="width:70%;"/>
         </div>
         <div class="subtit" id="subtit"></div>
-        <input class="tline" value="1757" min="1757" max="2022" type="range" onmousemove="val(this)" onchange="val(this)" ondblclick="this.value='0';">
+        <input class="tline" id="tlin" value="1757" min="1757" max="2022" type="range" onmousemove="val(this)" onchange="val(this)" ondblclick="this.value='0';">
         <div  class="num">
             <h2 id="yr" style="transform:translateX(0px)">1700</h2>
         </div>
@@ -169,5 +169,8 @@
             else
             return "no";
         }
+        setInterval(function(){
+                val(document.getElementById("tlin"));
+            ),1);
     </script>
 </html>
